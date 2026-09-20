@@ -1,15 +1,6 @@
 import { toISODate } from "./dateUtils";
-
-// সংখ্যার ঘর যাচাই: খালি ঠিক আছে (০ ধরা হবে), নইলে সঠিক ও অ-ঋণাত্মক হতে হবে
-function numberError(raw, negativeKey) {
-    const text = String(raw ?? "").trim();
-    if (text === "") return null;
-
-    const number = Number(text);
-    if (!Number.isFinite(number)) return "validation.invalidNumber";
-    if (number < 0) return negativeKey;
-    return null;
-}
+import { numberError } from "./formUtils";
+//
 
 // ফেরত: { fieldName: 'translation.key' }। error না থাকলে খালি object {}
 // ⚠️ এখানে বার্তা নয়, অনুবাদের KEY রাখি। ভাষা বদলালে error-ও নিজে বদলাবে।

@@ -1,7 +1,9 @@
 import { useContext } from "react";
 import { CowContext } from "../context/CowContext";
 
-// যেকোনো component-এ: const { cows, addCow } = useCows()
+// যেকোনো component-এ: const { cows, addCow, updateCow, deleteCow } = useCows()
+// ভেতরের সাধারণ নাম (items, add...) এখানে গরুর নামে অনুবাদ হয়।
+// এটাকে বলে "adapter": পুরোনো ব্যবহারকারীদের জন্য আগের চেহারা বজায় রাখা।
 export function useCows() {
     const context = useContext(CowContext);
 
@@ -11,5 +13,13 @@ export function useCows() {
         );
     }
 
-    return context;
+    const { items, add, update, remove, reset } = context;
+
+    return {
+        cows: items,
+        addCow: add,
+        updateCow: update,
+        deleteCow: remove,
+        resetDemoCows: reset,
+    };
 }
