@@ -3,6 +3,36 @@ const en = {
         name: "Cow Farm Management",
     },
 
+    nav: {
+        dashboard: "Dashboard",
+        farm: "Farm",
+        cows: "Cows",
+        land: "Land",
+        grass: "Grass",
+        feed: "Feed",
+        production: "Production",
+        milk: "Milk",
+        sales: "Sales",
+        milkSales: "Milk Sales",
+        cowSales: "Cow Sales",
+        finance: "Finance",
+        income: "Income",
+        expenses: "Expenses",
+        profitLoss: "Profit & Loss",
+        reports: "Reports",
+        settings: "Settings",
+    },
+
+    common: {
+        comingSoon: "This section will be built soon.",
+    },
+
+    notFound: {
+        title: "Page not found",
+        message: "The address you tried to visit is not correct.",
+        backHome: "Back to Dashboard",
+    },
+
     theme: {
         light: "Light",
         dark: "Dark",
@@ -12,13 +42,6 @@ const en = {
 
     language: {
         switch: "Change language",
-    },
-
-    // ⚠️ Only for the test page, will be removed in Step 5
-    demo: {
-        currentTheme: "Current theme",
-        persistNote: "This theme is remembered even after a page reload.",
-        primaryButton: "Primary Button",
     },
 };
 
