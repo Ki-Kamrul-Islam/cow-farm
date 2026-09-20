@@ -27,6 +27,12 @@ const en = {
         comingSoon: "This section will be built soon.",
     },
 
+    layout: {
+        openMenu: "Open menu",
+        closeMenu: "Close menu",
+        mobileMenu: "Navigation menu",
+    },
+
     notFound: {
         title: "Page not found",
         message: "The address you tried to visit is not correct.",

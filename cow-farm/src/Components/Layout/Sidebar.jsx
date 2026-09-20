@@ -1,8 +1,11 @@
 import { NavLink } from "react-router-dom";
+import { FiX } from "react-icons/fi";
 import { NAVIGATION } from "../../config/navigation";
 import { useLanguage } from "../../hooks/useLanguage";
 
-function Sidebar() {
+// onNavigate: কোনো menu-তে চাপলে যা করতে হবে (Mobile-এ drawer বন্ধ করা)
+// onClose: দিলে ✕ বোতাম দেখাবে (শুধু Mobile drawer-এ দেওয়া হবে)
+function Sidebar({ onNavigate, onClose }) {
     const { t } = useLanguage();
 
     return (
@@ -10,9 +13,21 @@ function Sidebar() {
             {/* উপরের logo অংশ */}
             <div className="flex h-16 shrink-0 items-center gap-2 border-b border-line px-5">
                 <span className="text-2xl">🐄</span>
-                <span className="font-bold leading-tight text-primary">
+                <span className="min-w-0 font-bold leading-tight text-primary">
                     {t("app.name")}
                 </span>
+
+                {onClose && (
+                    <button
+                        type="button"
+                        onClick={onClose}
+                        aria-label={t("layout.closeMenu")}
+                        title={t("layout.closeMenu")}
+                        className="ml-auto inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full text-muted transition-colors hover:bg-background hover:text-content"
+                    >
+                        <FiX size={18} />
+                    </button>
+                )}
             </div>
 
             {/* menu তালিকা */}
@@ -34,6 +49,7 @@ function Sidebar() {
                                         <NavLink
                                             to={item.path}
                                             end={item.end}
+                                            onClick={onNavigate}
                                             className={({ isActive }) =>
                                                 `flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                                                     isActive ?

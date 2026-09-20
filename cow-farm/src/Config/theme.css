@@ -25,6 +25,8 @@
     --c-warning: #f59e0b;
     --c-danger: #dc2626;
     --c-info: #2563eb;
+
+    --c-overlay: rgb(0 0 0 / 0.5); /* drawer/modal-এর পেছনের পর্দা */
 }
 
 /* 3️⃣ 🌙 DARK MODE-এর রঙ (<html class="dark"> হলে এগুলো বসবে) */
@@ -47,6 +49,8 @@
     --c-warning: #fbbf24;
     --c-danger: #f87171;
     --c-info: #60a5fa;
+
+    --c-overlay: rgb(0 0 0 / 0.7); /* dark mode-এ পর্দা আরেকটু গাঢ় */
 }
 
 /* 4️⃣ Tailwind-কে রঙের নাম শেখানো:
@@ -68,6 +72,8 @@
     --color-warning: var(--c-warning);
     --color-danger: var(--c-danger);
     --color-info: var(--c-info);
+
+    --color-overlay: var(--c-overlay);
 }
 
 /* 
