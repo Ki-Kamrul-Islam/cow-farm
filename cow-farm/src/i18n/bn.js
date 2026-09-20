@@ -23,6 +23,25 @@ const bn = {
         settings: "সেটিংস",
     },
 
+    dashboard: {
+        subtitle: "আপনার খামারের সারসংক্ষেপ",
+        demoNote:
+            "এখন নমুনা (demo) তথ্য দেখানো হচ্ছে। গরু, দুধ ইত্যাদি অংশ তৈরি হলে আসল তথ্য আসবে।",
+        totalCows: "মোট গরু",
+        todayMilk: "আজকের দুধ",
+        todaySales: "আজকের বিক্রি",
+        todayExpense: "আজকের খরচ",
+        availableFeed: "মজুত খাদ্য",
+        availableLand: "ঘাসের জন্য জমি",
+        monthlyProfit: "মাসিক লাভ",
+    },
+
+    units: {
+        liter: "লিটার",
+        kg: "কেজি",
+        acre: "একর",
+    },
+
     common: {
         comingSoon: "এই অংশটি শীঘ্রই তৈরি করা হবে।",
     },

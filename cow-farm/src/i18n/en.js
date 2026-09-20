@@ -23,6 +23,25 @@ const en = {
         settings: "Settings",
     },
 
+    dashboard: {
+        subtitle: "Overview of your farm",
+        demoNote:
+            "Showing demo data for now. Real numbers will appear once the Cow, Milk and other modules are built.",
+        totalCows: "Total Cows",
+        todayMilk: "Today's Milk",
+        todaySales: "Today's Sales",
+        todayExpense: "Today's Expense",
+        availableFeed: "Available Feed",
+        availableLand: "Available Grass Land",
+        monthlyProfit: "Monthly Profit",
+    },
+
+    units: {
+        liter: "L",
+        kg: "KG",
+        acre: "Acre",
+    },
+
     common: {
         comingSoon: "This section will be built soon.",
     },
