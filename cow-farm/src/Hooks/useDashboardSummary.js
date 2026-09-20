@@ -1,8 +1,11 @@
 import { useMemo } from "react";
 import { dashboardService } from "../services/dashboardService";
+import { useCows } from "./useCows";
 
 // Page শুধু জানে: const summary = useDashboardSummary()
-// data কোথা থেকে আসছে (demo, LocalStorage, API), সেটা জানার দরকার নেই।
+// গরু বদলালে (যোগ/মোছা/অবস্থা বদল) সংখ্যা নিজে নিজে বদলে যায়।
 export function useDashboardSummary() {
-    return useMemo(() => dashboardService.getSummary(), []);
+    const { cows } = useCows();
+
+    return useMemo(() => dashboardService.getSummary({ cows }), [cows]);
 }

@@ -82,3 +82,23 @@ export const COW_FORM_FIELDS = [
 
 // যেগুলো সংখ্যা (বাকি সব লেখা)
 export const COW_NUMBER_FIELDS = ["weight", "milkProduction", "purchasePrice"];
+
+//
+// "সব" বেছে নিলে ছাঁকা হয় না। কোনো আসল জাত/অবস্থার কোডের সাথে যেন না মেলে
+export const FILTER_ALL = "all";
+
+// তালিকা সাজানোর উপায় (অনুবাদ: cows.sort.<কোড>)
+export const COW_SORT_OPTIONS = [
+    "default",
+    "ageOldest",
+    "ageYoungest",
+    "milkHigh",
+    "milkLow",
+    "name",
+];
+
+// প্রতি পাতায় কয়টি গরু। সংখ্যা বদলালেই পাতা ভাগ বদলে যাবে
+export const COW_PAGE_SIZE = 10;
+
+// এই অবস্থার গরু আর খামারে নেই, "মোট গরু" গণনায় ধরা হয় না
+export const NOT_IN_HERD_STATUSES = ["sold", "dead"];

@@ -26,7 +26,7 @@ const en = {
     dashboard: {
         subtitle: "Overview of your farm",
         demoNote:
-            "Showing demo data for now. Real numbers will appear once the Cow, Milk and other modules are built.",
+            "Total Cows now comes from your real data. The other numbers and charts are still demo data and will become real once their modules are built.",
         totalCows: "Total Cows",
         todayMilk: "Today's Milk",
         todaySales: "Today's Sales",
@@ -78,6 +78,25 @@ const en = {
 
     cows: {
         total: "Total cows",
+        inHerd: "In the herd",
+        totalRecords: "Total records",
+        searchPlaceholder: "Search by name or ID",
+        filters: {
+            sortBy: "Sort by",
+            clear: "Clear filters",
+        },
+        sort: {
+            default: "Order added",
+            ageOldest: "Age: oldest first",
+            ageYoungest: "Age: youngest first",
+            milkHigh: "Milk: high to low",
+            milkLow: "Milk: low to high",
+            name: "Name (A–Z)",
+        },
+        noResults: {
+            title: "No cows found",
+            description: "Try changing your search or filters.",
+        },
         add: "Add Cow",
         addTitle: "Add New Cow",
         editTitle: "Edit Cow",
@@ -184,6 +203,16 @@ const en = {
         save: "Save",
         cancel: "Cancel",
         close: "Close",
+        all: "All",
+        clearSearch: "Clear search",
+    },
+
+    pagination: {
+        label: "Pagination",
+        showing: "Showing {from}–{to} of {total}",
+        previous: "Previous page",
+        next: "Next page",
+        page: "Page {page}",
     },
 
     layout: {

@@ -26,7 +26,7 @@ const bn = {
     dashboard: {
         subtitle: "আপনার খামারের সারসংক্ষেপ",
         demoNote:
-            "এখন নমুনা (demo) তথ্য দেখানো হচ্ছে। গরু, দুধ ইত্যাদি অংশ তৈরি হলে আসল তথ্য আসবে।",
+            "মোট গরুর সংখ্যা এখন আসল তথ্য থেকে আসছে। বাকি সংখ্যা ও chart এখনো নমুনা (demo), সংশ্লিষ্ট অংশ তৈরি হলে আসল তথ্য আসবে।",
         totalCows: "মোট গরু",
         todayMilk: "আজকের দুধ",
         todaySales: "আজকের বিক্রি",
@@ -78,6 +78,25 @@ const bn = {
 
     cows: {
         total: "মোট গরু",
+        inHerd: "খামারে আছে",
+        totalRecords: "মোট রেকর্ড",
+        searchPlaceholder: "নাম বা আইডি দিয়ে খুঁজুন",
+        filters: {
+            sortBy: "সাজান",
+            clear: "ফিল্টার মুছুন",
+        },
+        sort: {
+            default: "যোগ করার ক্রম",
+            ageOldest: "বয়স: বেশি থেকে কম",
+            ageYoungest: "বয়স: কম থেকে বেশি",
+            milkHigh: "দুধ: বেশি থেকে কম",
+            milkLow: "দুধ: কম থেকে বেশি",
+            name: "নাম (বর্ণানুক্রম)",
+        },
+        noResults: {
+            title: "কোনো গরু পাওয়া যায়নি",
+            description: "অনুসন্ধান বা ফিল্টার বদলে আবার চেষ্টা করুন।",
+        },
         add: "গরু যোগ করুন",
         addTitle: "নতুন গরু যোগ করুন",
         editTitle: "গরুর তথ্য সম্পাদনা",
@@ -183,6 +202,16 @@ const bn = {
         save: "সংরক্ষণ করুন",
         cancel: "বাতিল",
         close: "বন্ধ করুন",
+        all: "সব",
+        clearSearch: "অনুসন্ধান মুছুন",
+    },
+
+    pagination: {
+        label: "পাতা পরিবর্তন",
+        showing: "দেখানো হচ্ছে {from}–{to}, মোট {total}",
+        previous: "আগের পাতা",
+        next: "পরের পাতা",
+        page: "পাতা {page}",
     },
 
     layout: {

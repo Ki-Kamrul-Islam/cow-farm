@@ -6,13 +6,17 @@ import {
     DASHBOARD_DEMO_INCOME_VS_EXPENSE,
 } from "../data/dashboardDemo";
 import { lastNDays, lastNMonths } from "../utils/dateUtils";
+import { countHerd } from "../utils/cowUtils";
 
 // Dashboard-এর সব data আনার একমাত্র জায়গা।
-// পরে এখানে গরু/দুধ/বিক্রি/খরচের service থেকে হিসাব করে আসল সংখ্যা ফেরত দেব।
-// Page বা chart-এর code তখন একটুও বদলাতে হবে না।
+// যে অংশের module তৈরি হয়েছে (গরু) সেটা আসল, বাকিটা এখনো নমুনা।
 export const dashboardService = {
-    getSummary() {
-        return DASHBOARD_DEMO_SUMMARY;
+    // cows: সব গরুর তালিকা (hook দেয়)
+    getSummary({ cows = [] } = {}) {
+        return {
+            ...DASHBOARD_DEMO_SUMMARY, // আপাতত নমুনা
+            totalCows: countHerd(cows), // ✅ আসল
+        };
     },
 
     getProfit() {

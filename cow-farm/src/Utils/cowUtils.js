@@ -2,10 +2,12 @@
 
 // জন্মতারিখ থেকে বয়স: { years: 6, months: 6 }
 // তারিখ খালি বা ভুল (বা ভবিষ্যতের) হলে null
+// এখন:
 import {
     COW_DEFAULTS,
     COW_FORM_FIELDS,
     COW_NUMBER_FIELDS,
+    NOT_IN_HERD_STATUSES,
 } from "../constants/cow";
 //
 export function calculateAge(dateOfBirth, today = new Date()) {
@@ -66,4 +68,11 @@ export function toCowData(values) {
     });
 
     return data;
+}
+
+//
+// এখন খামারে কতটি গরু আছে (বিক্রিত ও মৃত বাদে)
+export function countHerd(cows) {
+    return cows.filter((cow) => !NOT_IN_HERD_STATUSES.includes(cow.status))
+        .length;
 }
