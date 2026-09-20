@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App.jsx";
 import { ThemeProvider } from "./context/ThemeProvider.jsx";
 import { LanguageProvider } from "./context/LanguageProvider.jsx";
+import { CowProvider } from "./context/CowProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         <ThemeProvider>
             <LanguageProvider>
-                <App />
+                <CowProvider>
+                    <App />
+                </CowProvider>
             </LanguageProvider>
         </ThemeProvider>
     </StrictMode>,

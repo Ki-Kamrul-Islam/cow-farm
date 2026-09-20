@@ -40,6 +40,8 @@ const en = {
         liter: "L",
         kg: "KG",
         acre: "Acre",
+        year: "yr",
+        month: "mo",
     },
 
     profit: {
@@ -71,6 +73,52 @@ const en = {
         medicine: "Medicine",
         electricity: "Electricity",
         transport: "Transport",
+        other: "Other",
+    },
+
+    cows: {
+        demoNote:
+            "Showing demo cows. Adding, editing and deleting cows will come in the next step.",
+        total: "Total cows",
+        resetDemo: "Reload demo data",
+        columns: {
+            cowId: "Cow ID",
+            name: "Name",
+            breed: "Breed",
+            gender: "Gender",
+            age: "Age",
+            weight: "Weight (KG)",
+            milk: "Milk (L/day)",
+            status: "Status",
+        },
+        empty: {
+            title: "No cows yet",
+            description: "Cows you add will appear here.",
+        },
+    },
+
+    cowStatus: {
+        active: "Active",
+        sold: "Sold",
+        sick: "Sick",
+        pregnant: "Pregnant",
+        dead: "Dead",
+        retired: "Retired",
+    },
+
+    gender: {
+        female: "Female",
+        male: "Male",
+    },
+
+    breed: {
+        local: "Local (Deshi)",
+        redChittagong: "Red Chittagong",
+        sahiwal: "Sahiwal",
+        holsteinFriesian: "Holstein Friesian",
+        jersey: "Jersey",
+        sindhi: "Sindhi",
+        crossbreed: "Crossbreed",
         other: "Other",
     },
 

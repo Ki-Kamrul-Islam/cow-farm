@@ -40,6 +40,8 @@ const bn = {
         liter: "লিটার",
         kg: "কেজি",
         acre: "একর",
+        year: "বছর",
+        month: "মাস",
     },
 
     profit: {
@@ -71,6 +73,52 @@ const bn = {
         medicine: "ওষুধ",
         electricity: "বিদ্যুৎ",
         transport: "পরিবহন",
+        other: "অন্যান্য",
+    },
+
+    cows: {
+        demoNote:
+            "এখানে নমুনা গরু দেখানো হচ্ছে। গরু যোগ, সম্পাদনা ও মুছে ফেলার সুবিধা পরের ধাপে আসবে।",
+        total: "মোট গরু",
+        resetDemo: "নমুনা তথ্য আবার লোড করুন",
+        columns: {
+            cowId: "গরুর আইডি",
+            name: "নাম",
+            breed: "জাত",
+            gender: "লিঙ্গ",
+            age: "বয়স",
+            weight: "ওজন (কেজি)",
+            milk: "দুধ (লিটার/দিন)",
+            status: "অবস্থা",
+        },
+        empty: {
+            title: "কোনো গরু নেই",
+            description: "গরু যোগ করলে এখানে তালিকা দেখা যাবে।",
+        },
+    },
+
+    cowStatus: {
+        active: "সক্রিয়",
+        sold: "বিক্রিত",
+        sick: "অসুস্থ",
+        pregnant: "গর্ভবতী",
+        dead: "মৃত",
+        retired: "অবসরপ্রাপ্ত",
+    },
+
+    gender: {
+        female: "স্ত্রী",
+        male: "পুরুষ",
+    },
+
+    breed: {
+        local: "দেশি",
+        redChittagong: "রেড চিটাগং",
+        sahiwal: "শাহীওয়াল",
+        holsteinFriesian: "হলস্টেইন ফ্রিজিয়ান",
+        jersey: "জার্সি",
+        sindhi: "সিন্ধি",
+        crossbreed: "সংকর",
         other: "অন্যান্য",
     },
 
