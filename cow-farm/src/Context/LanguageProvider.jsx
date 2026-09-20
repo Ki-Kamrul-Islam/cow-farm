@@ -27,7 +27,7 @@ export function LanguageProvider({ children }) {
     };
 
     // t('theme.light') → বর্তমান ভাষার লেখা
-    const t = (key) => translate(language, key);
+    const t = (key, params) => translate(language, key, params);
 
     const value = {
         language, // 'bn' অথবা 'en'

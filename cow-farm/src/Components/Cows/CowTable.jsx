@@ -3,8 +3,12 @@ import CowStatusBadge from "./CowStatusBadge";
 import { useLanguage } from "../../hooks/useLanguage";
 import { useFormatters } from "../../hooks/useFormatters";
 import { calculateAge } from "../../utils/cowUtils";
+//
+import { FiEdit2, FiTrash2 } from "react-icons/fi";
+import Button from "../common/Button";
+//
 
-function CowTable({ cows }) {
+function CowTable({ cows, onEdit, onDelete }) {
     const { t } = useLanguage();
     const { formatNumber } = useFormatters();
 
@@ -66,6 +70,33 @@ function CowTable({ cows }) {
             key: "status",
             header: t("cows.columns.status"),
             render: (cow) => <CowStatusBadge status={cow.status} />,
+        },
+
+        {
+            key: "actions",
+            header: t("common.actions"),
+            align: "right",
+            render: (cow) => (
+                <div className="flex justify-end gap-1">
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        icon={FiEdit2}
+                        onClick={() => onEdit(cow)}
+                        aria-label={`${t("common.edit")}: ${cow.name}`}
+                        title={t("common.edit")}
+                    />
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        icon={FiTrash2}
+                        className="hover:text-danger"
+                        onClick={() => onDelete(cow)}
+                        aria-label={`${t("common.delete")}: ${cow.name}`}
+                        title={t("common.delete")}
+                    />
+                </div>
+            ),
         },
     ];
 

@@ -77,10 +77,38 @@ const en = {
     },
 
     cows: {
-        demoNote:
-            "Showing demo cows. Adding, editing and deleting cows will come in the next step.",
         total: "Total cows",
-        resetDemo: "Reload demo data",
+        add: "Add Cow",
+        addTitle: "Add New Cow",
+        editTitle: "Edit Cow",
+        form: {
+            cowId: "Cow ID",
+            name: "Name",
+            breed: "Breed",
+            gender: "Gender",
+            dateOfBirth: "Date of Birth",
+            color: "Color",
+            weight: "Weight (KG)",
+            milkProduction: "Milk (L/day)",
+            purchaseDate: "Purchase Date",
+            purchasePrice: "Purchase Price (৳)",
+            status: "Status",
+            healthStatus: "Health Status",
+            lastVaccinationDate: "Last Vaccination Date",
+            pregnancyStatus: "Pregnancy Status",
+            expectedDeliveryDate: "Expected Delivery Date",
+            notes: "Notes",
+        },
+        messages: {
+            added: "Cow added successfully.",
+            updated: "Cow updated successfully.",
+            deleted: "Cow deleted successfully.",
+        },
+        delete: {
+            title: "Delete this cow?",
+            message:
+                '"{name}" ({cowId}) will be permanently removed and this cannot be undone. If the cow was sold or died, it is better to change its Status instead of deleting.',
+        },
         columns: {
             cowId: "Cow ID",
             name: "Name",
@@ -122,8 +150,40 @@ const en = {
         other: "Other",
     },
 
+    healthStatus: {
+        healthy: "Healthy",
+        sick: "Sick",
+        recovering: "Recovering",
+    },
+
+    pregnancyStatus: {
+        notPregnant: "Not pregnant",
+        pregnant: "Pregnant",
+        notApplicable: "Not applicable",
+    },
+
+    validation: {
+        cowIdRequired: "Cow ID is required.",
+        cowIdDuplicate: "This ID already exists. Please use a different one.",
+        nameRequired: "Cow name is required.",
+        dateFuture: "Future dates are not allowed.",
+        purchaseBeforeBirth:
+            "Purchase date cannot be before the date of birth.",
+        invalidNumber: "Please enter a valid number.",
+        negative: "Value cannot be negative.",
+        priceNegative: "Price cannot be negative.",
+        malePregnant: "A male cow cannot be pregnant.",
+    },
+
     common: {
         comingSoon: "This section will be built soon.",
+        actions: "Actions",
+        add: "Add",
+        edit: "Edit",
+        delete: "Delete",
+        save: "Save",
+        cancel: "Cancel",
+        close: "Close",
     },
 
     layout: {

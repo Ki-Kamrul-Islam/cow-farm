@@ -3,12 +3,13 @@ const VARIANTS = {
     primary: "bg-primary text-on-primary hover:bg-primary-hover",
     secondary: "border border-line bg-surface text-content hover:bg-background",
     danger: "bg-danger text-on-primary hover:opacity-90",
-    ghost: "text-content hover:bg-background",
+    ghost: "text-content hover:bg-line",
 };
 
 const SIZES = {
     sm: "px-3 py-1.5 text-sm",
     md: "px-4 py-2 text-sm",
+    icon: "h-8 w-8",
 };
 
 // icon: ঐচ্ছিক icon component (যেমন FiPlus)

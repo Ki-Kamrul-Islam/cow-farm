@@ -77,10 +77,38 @@ const bn = {
     },
 
     cows: {
-        demoNote:
-            "এখানে নমুনা গরু দেখানো হচ্ছে। গরু যোগ, সম্পাদনা ও মুছে ফেলার সুবিধা পরের ধাপে আসবে।",
         total: "মোট গরু",
-        resetDemo: "নমুনা তথ্য আবার লোড করুন",
+        add: "গরু যোগ করুন",
+        addTitle: "নতুন গরু যোগ করুন",
+        editTitle: "গরুর তথ্য সম্পাদনা",
+        form: {
+            cowId: "গরুর আইডি",
+            name: "নাম",
+            breed: "জাত",
+            gender: "লিঙ্গ",
+            dateOfBirth: "জন্মতারিখ",
+            color: "রং",
+            weight: "ওজন (কেজি)",
+            milkProduction: "দুধ (লিটার/দিন)",
+            purchaseDate: "কেনার তারিখ",
+            purchasePrice: "কেনার দাম (৳)",
+            status: "অবস্থা",
+            healthStatus: "স্বাস্থ্যের অবস্থা",
+            lastVaccinationDate: "সর্বশেষ টিকার তারিখ",
+            pregnancyStatus: "গর্ভাবস্থা",
+            expectedDeliveryDate: "সম্ভাব্য প্রসবের তারিখ",
+            notes: "নোট",
+        },
+        messages: {
+            added: "গরুটি সফলভাবে যোগ করা হয়েছে।",
+            updated: "গরুর তথ্য সফলভাবে আপডেট করা হয়েছে।",
+            deleted: "গরুটি মুছে ফেলা হয়েছে।",
+        },
+        delete: {
+            title: "গরুটি মুছে ফেলবেন?",
+            message:
+                '"{name}" ({cowId}) স্থায়ীভাবে মুছে যাবে, এটি আর ফেরানো যাবে না। বিক্রি বা মৃত্যু হলে মুছে না ফেলে "অবস্থা" বদলে দেওয়াই ভালো।',
+        },
         columns: {
             cowId: "গরুর আইডি",
             name: "নাম",
@@ -122,8 +150,39 @@ const bn = {
         other: "অন্যান্য",
     },
 
+    healthStatus: {
+        healthy: "সুস্থ",
+        sick: "অসুস্থ",
+        recovering: "সেরে উঠছে",
+    },
+
+    pregnancyStatus: {
+        notPregnant: "গর্ভবতী নয়",
+        pregnant: "গর্ভবতী",
+        notApplicable: "প্রযোজ্য নয়",
+    },
+
+    validation: {
+        cowIdRequired: "গরুর আইডি দিতে হবে।",
+        cowIdDuplicate: "এই আইডি আগে থেকেই আছে। অন্য আইডি দিন।",
+        nameRequired: "গরুর নাম দিতে হবে।",
+        dateFuture: "ভবিষ্যতের তারিখ দেওয়া যাবে না।",
+        purchaseBeforeBirth: "কেনার তারিখ জন্মতারিখের আগে হতে পারে না।",
+        invalidNumber: "সঠিক সংখ্যা লিখুন।",
+        negative: "মান ঋণাত্মক হতে পারবে না।",
+        priceNegative: "দাম ঋণাত্মক হতে পারবে না।",
+        malePregnant: "পুরুষ গরু গর্ভবতী হতে পারে না।",
+    },
+
     common: {
         comingSoon: "এই অংশটি শীঘ্রই তৈরি করা হবে।",
+        actions: "কাজ",
+        add: "যোগ করুন",
+        edit: "সম্পাদনা",
+        delete: "মুছুন",
+        save: "সংরক্ষণ করুন",
+        cancel: "বাতিল",
+        close: "বন্ধ করুন",
     },
 
     layout: {

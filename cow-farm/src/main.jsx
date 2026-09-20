@@ -4,15 +4,18 @@ import "./index.css";
 import App from "./App.jsx";
 import { ThemeProvider } from "./context/ThemeProvider.jsx";
 import { LanguageProvider } from "./context/LanguageProvider.jsx";
+import { ToastProvider } from "./context/ToastProvider.jsx";
 import { CowProvider } from "./context/CowProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
         <ThemeProvider>
             <LanguageProvider>
-                <CowProvider>
-                    <App />
-                </CowProvider>
+                <ToastProvider>
+                    <CowProvider>
+                        <App />
+                    </CowProvider>
+                </ToastProvider>
             </LanguageProvider>
         </ThemeProvider>
     </StrictMode>,

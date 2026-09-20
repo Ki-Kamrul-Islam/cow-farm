@@ -1,21 +1,54 @@
+import { useState } from "react";
 import { FaCow } from "react-icons/fa6";
-import { FiInfo, FiRefreshCw } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
 import Button from "../components/common/Button";
 import Card from "../components/common/Card";
+import ConfirmDialog from "../components/common/ConfirmDialog";
 import EmptyState from "../components/common/EmptyState";
 import CowTable from "../components/cows/CowTable";
+import CowFormModal from "../components/cows/CowFormModal";
 import { useCows } from "../hooks/useCows";
+import { useToast } from "../hooks/useToast";
 import { useLanguage } from "../hooks/useLanguage";
 import { useFormatters } from "../hooks/useFormatters";
 
 function CowsPage() {
     const { t } = useLanguage();
     const { formatNumber } = useFormatters();
-    const { cows, resetDemoCows } = useCows();
+    const { cows, addCow, updateCow, deleteCow } = useCows();
+    const { showToast } = useToast();
+
+    // 🧠 State ১: Form খোলা কিনা, আর কোন গরু (cow = null মানে নতুন গরু)
+    const [editor, setEditor] = useState({ isOpen: false, cow: null });
+    // 🧠 State ২: মুছতে চাওয়া গরু (null মানে কিছু নয়, বাক্স বন্ধ)
+    const [cowToDelete, setCowToDelete] = useState(null);
+
+    const openAdd = () => setEditor({ isOpen: true, cow: null });
+    const openEdit = (cow) => setEditor({ isOpen: true, cow });
+    const closeEditor = () =>
+        setEditor((current) => ({ ...current, isOpen: false }));
+
+    // Form থেকে পরিষ্কার data এলে
+    const handleSave = (data) => {
+        if (editor.cow) {
+            updateCow(editor.cow.id, data);
+            showToast(t("cows.messages.updated"));
+        } else {
+            addCow(data);
+            showToast(t("cows.messages.added"));
+        }
+        closeEditor();
+    };
+
+    const handleConfirmDelete = () => {
+        deleteCow(cowToDelete.id);
+        showToast(t("cows.messages.deleted"));
+        setCowToDelete(null);
+    };
 
     return (
         <div>
-            {/* শিরোনাম ও বোতাম */}
+            {/* শিরোনাম ও "গরু যোগ করুন" বোতাম */}
             <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                     <h1 className="text-2xl font-bold text-content">
@@ -26,19 +59,9 @@ function CowsPage() {
                     </p>
                 </div>
 
-                <Button
-                    variant="secondary"
-                    icon={FiRefreshCw}
-                    onClick={resetDemoCows}
-                >
-                    {t("cows.resetDemo")}
+                <Button icon={FiPlus} onClick={openAdd}>
+                    {t("cows.add")}
                 </Button>
-            </div>
-
-            {/* নমুনা data-র সতর্কতা (আসল data-র সুবিধা এলে মুছে ফেলব) */}
-            <div className="mt-4 flex items-start gap-2 rounded-lg border border-info/30 bg-info/10 px-4 py-3 text-sm text-info">
-                <FiInfo className="mt-0.5 shrink-0" />
-                <p>{t("cows.demoNote")}</p>
             </div>
 
             {/* তালিকা বা "কোনো গরু নেই" */}
@@ -48,12 +71,47 @@ function CowsPage() {
                         icon={FaCow}
                         title={t("cows.empty.title")}
                         description={t("cows.empty.description")}
+                        action={
+                            <Button icon={FiPlus} onClick={openAdd}>
+                                {t("cows.add")}
+                            </Button>
+                        }
                     />
                 :   <Card padded={false} className="overflow-hidden">
-                        <CowTable cows={cows} />
+                        <CowTable
+                            cows={cows}
+                            onEdit={openEdit}
+                            onDelete={setCowToDelete}
+                        />
                     </Card>
                 }
             </div>
+
+            {/* Form বাক্স (নতুন/সম্পাদনা) */}
+            <CowFormModal
+                isOpen={editor.isOpen}
+                cow={editor.cow}
+                cows={cows}
+                onSave={handleSave}
+                onClose={closeEditor}
+            />
+
+            {/* মুছে ফেলার নিশ্চিতকরণ */}
+            <ConfirmDialog
+                isOpen={cowToDelete !== null}
+                title={t("cows.delete.title")}
+                message={
+                    cowToDelete ?
+                        t("cows.delete.message", {
+                            name: cowToDelete.name,
+                            cowId: cowToDelete.cowId,
+                        })
+                    :   ""
+                }
+                confirmLabel={t("common.delete")}
+                onConfirm={handleConfirmDelete}
+                onCancel={() => setCowToDelete(null)}
+            />
         </div>
     );
 }

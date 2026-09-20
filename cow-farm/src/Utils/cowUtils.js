@@ -2,6 +2,12 @@
 
 // জন্মতারিখ থেকে বয়স: { years: 6, months: 6 }
 // তারিখ খালি বা ভুল (বা ভবিষ্যতের) হলে null
+import {
+    COW_DEFAULTS,
+    COW_FORM_FIELDS,
+    COW_NUMBER_FIELDS,
+} from "../constants/cow";
+//
 export function calculateAge(dateOfBirth, today = new Date()) {
     if (!dateOfBirth) return null;
 
@@ -27,4 +33,37 @@ export function generateCowId(cows) {
     }, 0);
 
     return `COW-${String(highest + 1).padStart(3, "0")}`;
+}
+//
+// গরুর data → Form-এর মান।
+// HTML-এর ঘর সবসময় লেখা (string) রাখে, তাই সব মান string বানাই।
+// সংখ্যা ০ বা খালি হলে ঘর ফাঁকা দেখাই, নইলে নতুন গরুতে "0" মুছে লিখতে হয়।
+export function toFormValues(cow) {
+    const source = { ...COW_DEFAULTS, ...cow };
+
+    return Object.fromEntries(
+        COW_FORM_FIELDS.map((key) => {
+            const value = source[key];
+            const isEmptyNumber = COW_NUMBER_FIELDS.includes(key) && !value;
+            return [key, isEmptyNumber ? "" : String(value ?? "")];
+        }),
+    );
+}
+
+// Form-এর মান → সংরক্ষণের data। লেখা ছেঁটে নেয়, সংখ্যা আসল সংখ্যা বানায়।
+// খালি সংখ্যার ঘর ০ হয়ে যায়।
+export function toCowData(values) {
+    const data = {};
+
+    COW_FORM_FIELDS.forEach((key) => {
+        const text = String(values[key] ?? "").trim();
+
+        if (COW_NUMBER_FIELDS.includes(key)) {
+            data[key] = text === "" ? 0 : Number(text);
+        } else {
+            data[key] = text;
+        }
+    });
+
+    return data;
 }

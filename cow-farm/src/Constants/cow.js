@@ -58,3 +58,27 @@ export const COW_DEFAULTS = {
     notes: "",
     photo: null,
 };
+
+// Form-এ যেসব field সম্পাদনা করা যায় (Form-এর ক্রম অনুযায়ী)
+// photo বাদ: ছবি upload ভবিষ্যতে আসবে
+export const COW_FORM_FIELDS = [
+    "cowId",
+    "name",
+    "breed",
+    "gender",
+    "dateOfBirth",
+    "color",
+    "weight",
+    "milkProduction",
+    "purchaseDate",
+    "purchasePrice",
+    "status",
+    "healthStatus",
+    "lastVaccinationDate",
+    "pregnancyStatus",
+    "expectedDeliveryDate",
+    "notes",
+];
+
+// যেগুলো সংখ্যা (বাকি সব লেখা)
+export const COW_NUMBER_FIELDS = ["weight", "milkProduction", "purchasePrice"];
