@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import "./config/theme.css";
+
+@layer base {
+    body {
+        @apply bg-background text-content;
+    }
+}
+
+/* 
+কী করছে? প্রথম লাইন Tailwind আনে। দ্বিতীয় লাইন আমাদের রঙের file আনে। body-তে bg-background text-content দেওয়ায় পুরো page-এর default রঙ theme থেকে আসবে।
+ */

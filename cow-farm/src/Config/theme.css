@@ -1,0 +1,87 @@
+/* ============================================================
+   🎨 CENTRAL THEME FILE
+   পুরো website-এর সব রঙ শুধু এই file-এ আছে।
+   রঙ বদলাতে চাইলে শুধু এখানকার hex code বদলান।
+   ============================================================ */
+
+/* 1️⃣ Dark mode কীভাবে চালু হবে: <html class="dark"> থাকলে */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 2️⃣ ☀️ LIGHT MODE-এর রঙ */
+:root {
+    --c-primary: #2e7d32;
+    --c-primary-hover: #1b5e20;
+    --c-on-primary: #ffffff; /* primary রঙের উপরের লেখা */
+    --c-secondary: #81c784;
+    --c-accent: #f9a825;
+
+    --c-background: #f5f7f5; /* পুরো page-এর পেছনের রঙ */
+    --c-surface: #ffffff; /* card, sidebar, navbar */
+    --c-content: #1f2937; /* মূল লেখা */
+    --c-muted: #6b7280; /* হালকা/ছোট লেখা */
+    --c-line: #e5e7eb; /* border ও দাগ */
+
+    --c-success: #16a34a;
+    --c-warning: #f59e0b;
+    --c-danger: #dc2626;
+    --c-info: #2563eb;
+}
+
+/* 3️⃣ 🌙 DARK MODE-এর রঙ (<html class="dark"> হলে এগুলো বসবে) */
+.dark {
+    color-scheme: dark; /* scrollbar, input ইত্যাদি browser-এর অংশও dark হবে */
+
+    --c-primary: #4caf50;
+    --c-primary-hover: #66bb6a;
+    --c-on-primary: #0b1f0e;
+    --c-secondary: #388e3c;
+    --c-accent: #fbc02d;
+
+    --c-background: #0f1712;
+    --c-surface: #17231b;
+    --c-content: #f3f4f6;
+    --c-muted: #9ca3af;
+    --c-line: #2b3b30;
+
+    --c-success: #22c55e;
+    --c-warning: #fbbf24;
+    --c-danger: #f87171;
+    --c-info: #60a5fa;
+}
+
+/* 4️⃣ Tailwind-কে রঙের নাম শেখানো:
+   এর ফলে bg-primary, text-muted, border-line ইত্যাদি class কাজ করবে */
+@theme inline {
+    --color-primary: var(--c-primary);
+    --color-primary-hover: var(--c-primary-hover);
+    --color-on-primary: var(--c-on-primary);
+    --color-secondary: var(--c-secondary);
+    --color-accent: var(--c-accent);
+
+    --color-background: var(--c-background);
+    --color-surface: var(--c-surface);
+    --color-content: var(--c-content);
+    --color-muted: var(--c-muted);
+    --color-line: var(--c-line);
+
+    --color-success: var(--c-success);
+    --color-warning: var(--c-warning);
+    --color-danger: var(--c-danger);
+    --color-info: var(--c-info);
+}
+
+/* 
+Class-এর নাম	কোথায় ব্যবহার হবে
+
+bg-background	পুরো page-এর পেছনের রঙ
+bg-surface	Card, Sidebar, Navbar, Modal, Table
+text-content	মূল লেখা
+text-muted	হালকা/ছোট লেখা
+border-line	সব border
+bg-primary + text-on-primary	মূল বোতাম (আর তার উপরের লেখা)
+bg-success / warning / danger / info	Badge, alert, status
+ */
+
+/* 
+নতুন রঙ যোগ করতে চাইলে ৩ জায়গায় লিখবেন: :root, .dark এবং @theme inline। যেমন brown চাইলে --c-brown, তারপর --color-brown: var(--c-brown), আর ব্যবহার হবে bg-brown।
+ */
