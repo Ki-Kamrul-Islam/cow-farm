@@ -5,8 +5,9 @@
     body {
         @apply bg-background text-content;
     }
-}
 
-/* 
-কী করছে? প্রথম লাইন Tailwind আনে। দ্বিতীয় লাইন আমাদের রঙের file আনে। body-তে bg-background text-content দেওয়ায় পুরো page-এর default রঙ theme থেকে আসবে।
- */
+    /* বাংলা অক্ষরে মাত্রা ও কার-চিহ্ন থাকায় লাইনের ফাঁক একটু বেশি লাগে */
+    html[lang="bn"] body {
+        line-height: 1.7;
+    }
+}

@@ -85,3 +85,9 @@ bg-success / warning / danger / info	Badge, alert, status
 /* 
 নতুন রঙ যোগ করতে চাইলে ৩ জায়গায় লিখবেন: :root, .dark এবং @theme inline। যেমন brown চাইলে --c-brown, তারপর --color-brown: var(--c-brown), আর ব্যবহার হবে bg-brown।
  */
+/*  ================================================== */
+/* 5️⃣ Font: ইংরেজি লেখা Inter-এ, বাংলা লেখা Noto Sans Bengali-তে দেখাবে */
+@theme {
+    --font-sans:
+        "Inter", "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
+}

@@ -2,4 +2,5 @@
 // একই নাম বারবার হাতে লিখলে বানান ভুলের ঝুঁকি থাকে।
 export const STORAGE_KEYS = {
     theme: "theme",
+    language: "language",
 };
