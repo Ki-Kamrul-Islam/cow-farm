@@ -26,13 +26,13 @@ const en = {
     dashboard: {
         subtitle: "Overview of your farm",
         demoNote:
-            "Total Cows now comes from your real data. The other numbers and charts are still demo data and will become real once their modules are built.",
+            "Total Cows and Grass Land now come from your real data. The other numbers and charts are still demo data and will become real once their modules are built.",
         totalCows: "Total Cows",
         todayMilk: "Today's Milk",
         todaySales: "Today's Sales",
         todayExpense: "Today's Expense",
         availableFeed: "Available Feed",
-        availableLand: "Available Grass Land",
+        availableLand: "Grass Land",
         monthlyProfit: "Monthly Profit",
     },
 
@@ -192,6 +192,106 @@ const en = {
         negative: "Value cannot be negative.",
         priceNegative: "Price cannot be negative.",
         malePregnant: "A male cow cannot be pregnant.",
+        landIdRequired: "Land ID is required.",
+        landIdDuplicate: "This ID already exists. Please use a different one.",
+        locationRequired: "Land location is required.",
+        areaRequired: "Land area is required.",
+        areaPositive: "Area must be greater than 0.",
+        harvestBeforePlanting:
+            "Harvest date cannot be before the planting date.",
+        costNegative: "Cost cannot be negative.",
+    },
+
+    lands: {
+        totalArea: "Total land",
+        grassArea: "Grass land",
+        add: "Add Land",
+        addTitle: "Add New Land",
+        editTitle: "Edit Land",
+        searchPlaceholder: "Search by ID, location or crop",
+        columns: {
+            landId: "Land ID",
+            location: "Location",
+            area: "Area",
+            soil: "Soil",
+            crop: "Crop / Grass",
+            harvestDate: "Harvest Date",
+            status: "Status",
+        },
+        form: {
+            landId: "Land ID",
+            location: "Location",
+            area: "Area",
+            unit: "Unit",
+            soilType: "Soil Type",
+            currentCrop: "Current Crop",
+            grassType: "Grass Type",
+            plantingDate: "Planting Date",
+            expectedHarvestDate: "Expected Harvest Date",
+            harvestQuantity: "Harvest Quantity (KG)",
+            cost: "Cost (৳)",
+            status: "Status",
+        },
+        filters: {
+            sortBy: "Sort by",
+            clear: "Clear filters",
+        },
+        sort: {
+            default: "Order added",
+            areaLarge: "Area: large to small",
+            areaSmall: "Area: small to large",
+            harvestSoon: "Harvest date: soonest first",
+        },
+        messages: {
+            added: "Land added successfully.",
+            updated: "Land updated successfully.",
+            deleted: "Land deleted successfully.",
+        },
+        delete: {
+            title: "Delete this land?",
+            message:
+                '"{landId}" ({location}) will be permanently removed and this cannot be undone.',
+        },
+        empty: {
+            title: "No land yet",
+            description: "Land you add will appear here.",
+        },
+        noResults: {
+            title: "No land found",
+            description: "Try changing your search or filters.",
+        },
+    },
+
+    landUnit: {
+        acre: "Acre",
+        decimal: "Decimal",
+        bigha: "Bigha",
+        hectare: "Hectare",
+    },
+
+    landStatus: {
+        fallow: "Fallow",
+        preparing: "Preparing",
+        growing: "Growing",
+        harvested: "Harvested",
+    },
+
+    soilType: {
+        loam: "Loam",
+        clay: "Clay",
+        sandy: "Sandy",
+        silt: "Silt",
+        other: "Other",
+    },
+
+    grassType: {
+        none: "None",
+        napier: "Napier",
+        para: "Para",
+        german: "German",
+        maize: "Maize",
+        sorghum: "Sorghum",
+        other: "Other",
     },
 
     common: {

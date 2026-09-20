@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Input from "../common/Input";
 import Select from "../common/Select";
 import Textarea from "../common/Textarea";
@@ -11,13 +10,11 @@ import {
 } from "../../constants/cow";
 import { validateCow } from "../../utils/cowValidation";
 import { toCowData } from "../../utils/cowUtils";
+import { NUMBER_INPUT_PROPS } from "../../utils/formUtils";
+import { useRecordForm } from "../../hooks/useRecordForm";
 import { useLanguage } from "../../hooks/useLanguage";
 
-// id: <form>-এর নাম (বাইরের Save বোতাম এটা দিয়েই Form চেনে)
-// initialValues: শুরুর মান (সব string)
-// existingCows: আইডি ডুপ্লিকেট আছে কিনা দেখার জন্য
-// editingId: সম্পাদনার সময় গরুটির নিজের আইডি (নিজের সাথে মেলা ধরা হয় না)
-// onSubmit: সব ঠিক থাকলে পরিষ্কার data নিয়ে ডাকা হয়
+// গরুর Form: শুধু "কোন ঘর কোথায়" লেখা। state ও আচরণ useRecordForm থেকে আসে।
 function CowForm({
     id,
     initialValues,
@@ -27,51 +24,13 @@ function CowForm({
 }) {
     const { t } = useLanguage();
 
-    // 🧠 State ১: সব ঘরের বর্তমান মান
-    const [values, setValues] = useState(initialValues);
-    // 🧠 State ২: error গুলো { name: 'validation.nameRequired' }। key রাখি, বার্তা নয়
-    const [errors, setErrors] = useState({});
-
-    // কোনো ঘরে লিখলে: সেই ঘরের মান বদলাও, আর তার error থাকলে সরিয়ে দাও
-    const handleChange = (name) => (event) => {
-        const { value } = event.target;
-        setValues((current) => ({ ...current, [name]: value }));
-        setErrors((current) => ({ ...current, [name]: undefined }));
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault(); // browser-এর নিজের page-reload আটকাই
-
-        const found = validateCow(values, existingCows, editingId);
-        setErrors(found);
-
-        const firstErrorField = Object.keys(found)[0];
-        if (firstErrorField) {
-            // প্রথম ভুল ঘরে cursor নিয়ে যাই
-            document.getElementById(`${id}-${firstErrorField}`)?.focus();
-            return;
-        }
-
-        onSubmit(toCowData(values));
-    };
-
-    // প্রতিটি ঘরের একই চারটি prop এক জায়গায় বানাই
-    const field = (name) => ({
-        id: `${id}-${name}`,
-        value: values[name],
-        onChange: handleChange(name),
-        error: errors[name] ? t(errors[name]) : undefined,
+    const { field, handleSubmit, toOptions } = useRecordForm({
+        formId: id,
+        initialValues,
+        validate: (values) => validateCow(values, existingCows, editingId),
+        toData: toCowData,
+        onSubmit,
     });
-
-    const toOptions = (list, prefix) =>
-        list.map((value) => ({ value, label: t(`${prefix}.${value}`) }));
-
-    const numberProps = {
-        type: "number",
-        inputMode: "decimal",
-        step: "any",
-        min: "0",
-    };
 
     return (
         // noValidate: browser-এর নিজের (ভাষা-অমিল) error বন্ধ, আমাদের বাংলা/English error চলবে
@@ -109,12 +68,12 @@ function CowForm({
 
                 <Input
                     label={t("cows.form.weight")}
-                    {...numberProps}
+                    {...NUMBER_INPUT_PROPS}
                     {...field("weight")}
                 />
                 <Input
                     label={t("cows.form.milkProduction")}
-                    {...numberProps}
+                    {...NUMBER_INPUT_PROPS}
                     {...field("milkProduction")}
                 />
 
@@ -125,7 +84,7 @@ function CowForm({
                 />
                 <Input
                     label={t("cows.form.purchasePrice")}
-                    {...numberProps}
+                    {...NUMBER_INPUT_PROPS}
                     {...field("purchasePrice")}
                 />
 

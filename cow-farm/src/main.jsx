@@ -6,6 +6,7 @@ import { ThemeProvider } from "./context/ThemeProvider.jsx";
 import { LanguageProvider } from "./context/LanguageProvider.jsx";
 import { ToastProvider } from "./context/ToastProvider.jsx";
 import { CowProvider } from "./context/CowProvider.jsx";
+import { LandProvider } from "./context/LandProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
@@ -13,7 +14,9 @@ createRoot(document.getElementById("root")).render(
             <LanguageProvider>
                 <ToastProvider>
                     <CowProvider>
-                        <App />
+                        <LandProvider>
+                            <App />
+                        </LandProvider>
                     </CowProvider>
                 </ToastProvider>
             </LanguageProvider>

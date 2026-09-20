@@ -7,15 +7,17 @@ import {
 } from "../data/dashboardDemo";
 import { lastNDays, lastNMonths } from "../utils/dateUtils";
 import { countHerd } from "../utils/cowUtils";
+import { grassLandAcres } from "../utils/landUtils";
 
 // Dashboard-এর সব data আনার একমাত্র জায়গা।
-// যে অংশের module তৈরি হয়েছে (গরু) সেটা আসল, বাকিটা এখনো নমুনা।
+// যে অংশের module তৈরি হয়েছে (গরু, জমি) সেটা আসল, বাকিটা এখনো নমুনা।
 export const dashboardService = {
-    // cows: সব গরুর তালিকা (hook দেয়)
-    getSummary({ cows = [] } = {}) {
+    // cows, lands: hook থেকে আসা তালিকা
+    getSummary({ cows = [], lands = [] } = {}) {
         return {
             ...DASHBOARD_DEMO_SUMMARY, // আপাতত নমুনা
             totalCows: countHerd(cows), // ✅ আসল
+            availableLand: grassLandAcres(lands), // ✅ আসল (একরে)
         };
     },
 

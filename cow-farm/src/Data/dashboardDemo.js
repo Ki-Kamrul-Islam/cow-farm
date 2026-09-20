@@ -4,7 +4,6 @@ export const DASHBOARD_DEMO_SUMMARY = {
     todaySales: 45000, // টাকা
     todayExpense: 18500, // টাকা
     availableFeed: 850, // কেজি
-    availableLand: 4.5, // একর
     monthlyProfit: 245000, // টাকা
 };
 

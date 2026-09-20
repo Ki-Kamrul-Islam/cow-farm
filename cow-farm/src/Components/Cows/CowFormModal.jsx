@@ -1,5 +1,4 @@
-import Modal from "../common/Modal";
-import Button from "../common/Button";
+import FormModal from "../common/FormModal";
 import CowForm from "./CowForm";
 import { toFormValues, generateCowId } from "../../utils/cowUtils";
 import { useLanguage } from "../../hooks/useLanguage";
@@ -15,23 +14,11 @@ function CowFormModal({ isOpen, cow, cows, onSave, onClose }) {
     const initialValues = toFormValues(cow ?? { cowId: generateCowId(cows) });
 
     return (
-        <Modal
+        <FormModal
             isOpen={isOpen}
             onClose={onClose}
             title={isEditing ? t("cows.editTitle") : t("cows.addTitle")}
-            size="lg"
-            closeOnOverlayClick={false}
-            footer={
-                <>
-                    <Button variant="secondary" onClick={onClose}>
-                        {t("common.cancel")}
-                    </Button>
-                    {/* বোতাম Form-এর বাইরে, তাই form="cow-form" দিয়ে Form-কে চেনানো */}
-                    <Button type="submit" form={FORM_ID}>
-                        {t("common.save")}
-                    </Button>
-                </>
-            }
+            formId={FORM_ID}
         >
             <CowForm
                 id={FORM_ID}
@@ -40,7 +27,7 @@ function CowFormModal({ isOpen, cow, cows, onSave, onClose }) {
                 editingId={isEditing ? cow.id : null}
                 onSubmit={onSave}
             />
-        </Modal>
+        </FormModal>
     );
 }
 

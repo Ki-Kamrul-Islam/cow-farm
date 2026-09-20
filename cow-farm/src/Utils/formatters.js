@@ -42,3 +42,15 @@ export function formatMonth(isoMonth, locale) {
     const date = new Date(`${isoMonth}-01T00:00:00`);
     return new Intl.DateTimeFormat(locale, { month: "short" }).format(date);
 }
+//
+// '2026-10-15' → '১৫ অক্টো, ২০২৬' / '15 Oct 2026'। তারিখ খালি হলে '-'
+export function formatISODate(isoDate, locale) {
+    if (!isoDate) return "-";
+
+    const date = new Date(`${isoDate}T00:00:00`);
+    if (Number.isNaN(date.getTime())) return "-";
+
+    return new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(
+        date,
+    );
+}

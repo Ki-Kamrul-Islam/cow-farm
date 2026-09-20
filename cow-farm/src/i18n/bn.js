@@ -26,13 +26,13 @@ const bn = {
     dashboard: {
         subtitle: "আপনার খামারের সারসংক্ষেপ",
         demoNote:
-            "মোট গরুর সংখ্যা এখন আসল তথ্য থেকে আসছে। বাকি সংখ্যা ও chart এখনো নমুনা (demo), সংশ্লিষ্ট অংশ তৈরি হলে আসল তথ্য আসবে।",
+            "মোট গরু ও ঘাসের জমির সংখ্যা এখন আসল তথ্য থেকে আসছে। বাকি সংখ্যা ও chart এখনো নমুনা (demo), সংশ্লিষ্ট অংশ তৈরি হলে আসল তথ্য আসবে।",
         totalCows: "মোট গরু",
         todayMilk: "আজকের দুধ",
         todaySales: "আজকের বিক্রি",
         todayExpense: "আজকের খরচ",
         availableFeed: "মজুত খাদ্য",
-        availableLand: "ঘাসের জন্য জমি",
+        availableLand: "ঘাসের জমি",
         monthlyProfit: "মাসিক লাভ",
     },
 
@@ -191,6 +191,105 @@ const bn = {
         negative: "মান ঋণাত্মক হতে পারবে না।",
         priceNegative: "দাম ঋণাত্মক হতে পারবে না।",
         malePregnant: "পুরুষ গরু গর্ভবতী হতে পারে না।",
+        landIdRequired: "জমির আইডি দিতে হবে।",
+        landIdDuplicate: "এই আইডি আগে থেকেই আছে। অন্য আইডি দিন।",
+        locationRequired: "জমির জায়গা লিখতে হবে।",
+        areaRequired: "জমির আয়তন দিতে হবে।",
+        areaPositive: "আয়তন ০-এর চেয়ে বেশি হতে হবে।",
+        harvestBeforePlanting: "ফসল কাটার তারিখ চাষের তারিখের আগে হতে পারে না।",
+        costNegative: "খরচ ঋণাত্মক হতে পারবে না।",
+    },
+
+    lands: {
+        totalArea: "মোট জমি",
+        grassArea: "ঘাসের জমি",
+        add: "জমি যোগ করুন",
+        addTitle: "নতুন জমি যোগ করুন",
+        editTitle: "জমির তথ্য সম্পাদনা",
+        searchPlaceholder: "আইডি, জায়গা বা ফসলের নাম দিয়ে খুঁজুন",
+        columns: {
+            landId: "জমির আইডি",
+            location: "জায়গা",
+            area: "আয়তন",
+            soil: "মাটি",
+            crop: "ফসল / ঘাস",
+            harvestDate: "ফসল কাটার তারিখ",
+            status: "অবস্থা",
+        },
+        form: {
+            landId: "জমির আইডি",
+            location: "জায়গা",
+            area: "আয়তন",
+            unit: "একক",
+            soilType: "মাটির ধরন",
+            currentCrop: "বর্তমান ফসল",
+            grassType: "ঘাসের ধরন",
+            plantingDate: "চাষের তারিখ",
+            expectedHarvestDate: "সম্ভাব্য ফসল কাটার তারিখ",
+            harvestQuantity: "ফসলের পরিমাণ (কেজি)",
+            cost: "খরচ (৳)",
+            status: "অবস্থা",
+        },
+        filters: {
+            sortBy: "সাজান",
+            clear: "ফিল্টার মুছুন",
+        },
+        sort: {
+            default: "যোগ করার ক্রম",
+            areaLarge: "আয়তন: বেশি থেকে কম",
+            areaSmall: "আয়তন: কম থেকে বেশি",
+            harvestSoon: "ফসল কাটার তারিখ: আগে যেটা",
+        },
+        messages: {
+            added: "জমিটি সফলভাবে যোগ করা হয়েছে।",
+            updated: "জমির তথ্য সফলভাবে আপডেট করা হয়েছে।",
+            deleted: "জমিটি মুছে ফেলা হয়েছে।",
+        },
+        delete: {
+            title: "জমিটি মুছে ফেলবেন?",
+            message:
+                '"{landId}" ({location}) স্থায়ীভাবে মুছে যাবে, এটি আর ফেরানো যাবে না।',
+        },
+        empty: {
+            title: "কোনো জমি নেই",
+            description: "জমি যোগ করলে এখানে তালিকা দেখা যাবে।",
+        },
+        noResults: {
+            title: "কোনো জমি পাওয়া যায়নি",
+            description: "অনুসন্ধান বা ফিল্টার বদলে আবার চেষ্টা করুন।",
+        },
+    },
+
+    landUnit: {
+        acre: "একর",
+        decimal: "শতাংশ",
+        bigha: "বিঘা",
+        hectare: "হেক্টর",
+    },
+
+    landStatus: {
+        fallow: "পতিত",
+        preparing: "প্রস্তুতি চলছে",
+        growing: "চাষ চলছে",
+        harvested: "ফসল কাটা হয়েছে",
+    },
+
+    soilType: {
+        loam: "দোআঁশ",
+        clay: "এঁটেল",
+        sandy: "বেলে",
+        silt: "পলি",
+        other: "অন্যান্য",
+    },
+
+    grassType: {
+        none: "কোনোটি নয়",
+        napier: "নেপিয়ার",
+        para: "পারা",
+        german: "জার্মান",
+        maize: "ভুট্টা",
+        sorghum: "জোয়ার",
+        other: "অন্যান্য",
     },
 
     common: {

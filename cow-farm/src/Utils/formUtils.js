@@ -61,3 +61,12 @@ export function nextSequentialId(items, field, prefix, digits = 3) {
 
     return `${prefix}-${String(highest + 1).padStart(digits, "0")}`;
 }
+
+//
+// সংখ্যার <input>-এর সাধারণ prop। Form-এর সব সংখ্যার ঘরে {...NUMBER_INPUT_PROPS} দিই
+export const NUMBER_INPUT_PROPS = {
+    type: "number",
+    inputMode: "decimal", // মোবাইলে সংখ্যার keyboard আসে
+    step: "any", // দশমিক গ্রহণযোগ্য
+    min: "0",
+};
