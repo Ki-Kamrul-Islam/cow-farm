@@ -42,6 +42,38 @@ const en = {
         acre: "Acre",
     },
 
+    profit: {
+        title: "Profit / Loss",
+        daily: "Today",
+        weekly: "This Week",
+        monthly: "This Month",
+        yearly: "This Year",
+        profit: "Profit",
+        loss: "Loss",
+    },
+
+    charts: {
+        milkTitle: "Milk Production",
+        milkSubtitle: "Last 7 days",
+        milkSeries: "Milk",
+        expenseTitle: "Expense Breakdown",
+        expenseSubtitle: "By category, last month",
+        incomeExpenseTitle: "Income vs Expense",
+        incomeExpenseSubtitle: "Last 6 months comparison",
+        income: "Income",
+        expense: "Expense",
+        noData: "No data to show",
+    },
+
+    expenseCategory: {
+        feed: "Feed",
+        labour: "Labour",
+        medicine: "Medicine",
+        electricity: "Electricity",
+        transport: "Transport",
+        other: "Other",
+    },
+
     common: {
         comingSoon: "This section will be built soon.",
     },

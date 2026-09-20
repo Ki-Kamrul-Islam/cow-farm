@@ -12,11 +12,18 @@ import StatCard from "../components/dashboard/StatCard";
 import { useLanguage } from "../hooks/useLanguage";
 import { useFormatters } from "../hooks/useFormatters";
 import { useDashboardSummary } from "../hooks/useDashboardSummary";
-
+//
+import ProfitOverview from "../components/dashboard/ProfitOverview";
+import MilkProductionChart from "../components/dashboard/MilkProductionChart";
+import ExpenseChart from "../components/dashboard/ExpenseChart";
+import IncomeExpenseChart from "../components/dashboard/IncomeExpenseChart";
+import { useDashboardAnalytics } from "../hooks/useDashboardAnalytics";
+//
 function DashboardPage() {
     const { t } = useLanguage();
     const { formatNumber, formatCurrency, formatDate } = useFormatters();
     const summary = useDashboardSummary();
+    const analytics = useDashboardAnalytics();
 
     // ৭টি card-এর তালিকা। একই StatCard ৭ বার লেখার বদলে তালিকা থেকে map করব।
     const cards = [
@@ -103,6 +110,20 @@ function DashboardPage() {
                         tone={card.tone}
                     />
                 ))}
+            </div>
+            {/* লাভ-ক্ষতি: আজ / সপ্তাহ / মাস / বছর */}
+            <div className="mt-6">
+                <ProfitOverview profit={analytics.profit} />
+            </div>
+
+            {/* Chart: Laptop-এ ২ কলাম, আয়-খরচের chart নিচে পুরো চওড়া */}
+            <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                <MilkProductionChart data={analytics.milkTrend} />
+                <ExpenseChart data={analytics.expenseByCategory} />
+                <IncomeExpenseChart
+                    data={analytics.incomeVsExpense}
+                    className="lg:col-span-2"
+                />
             </div>
         </div>
     );

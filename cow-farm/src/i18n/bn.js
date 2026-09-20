@@ -42,6 +42,38 @@ const bn = {
         acre: "একর",
     },
 
+    profit: {
+        title: "লাভ / ক্ষতি",
+        daily: "আজ",
+        weekly: "এই সপ্তাহ",
+        monthly: "এই মাস",
+        yearly: "এই বছর",
+        profit: "লাভ",
+        loss: "ক্ষতি",
+    },
+
+    charts: {
+        milkTitle: "দুধ উৎপাদন",
+        milkSubtitle: "গত ৭ দিন",
+        milkSeries: "দুধ",
+        expenseTitle: "খরচের ভাগ",
+        expenseSubtitle: "ক্যাটাগরি অনুযায়ী, গত মাস",
+        incomeExpenseTitle: "আয় বনাম খরচ",
+        incomeExpenseSubtitle: "গত ৬ মাসের তুলনা",
+        income: "আয়",
+        expense: "খরচ",
+        noData: "দেখানোর মতো তথ্য নেই",
+    },
+
+    expenseCategory: {
+        feed: "খাদ্য",
+        labour: "শ্রমিক",
+        medicine: "ওষুধ",
+        electricity: "বিদ্যুৎ",
+        transport: "পরিবহন",
+        other: "অন্যান্য",
+    },
+
     common: {
         comingSoon: "এই অংশটি শীঘ্রই তৈরি করা হবে।",
     },

@@ -4,6 +4,8 @@ import {
     formatNumber as baseFormatNumber,
     formatCurrency as baseFormatCurrency,
     formatDate as baseFormatDate,
+    formatShortDate as baseFormatShortDate,
+    formatMonth as baseFormatMonth,
 } from "../utils/formatters";
 
 // যেকোনো component-এ: const { formatNumber, formatCurrency } = useFormatters()
@@ -17,5 +19,7 @@ export function useFormatters() {
             baseFormatNumber(value, locale, options),
         formatCurrency: (value) => baseFormatCurrency(value, locale),
         formatDate: (value) => baseFormatDate(value, locale),
+        formatShortDate: (value) => baseFormatShortDate(value, locale),
+        formatMonth: (value) => baseFormatMonth(value, locale),
     };
 }
